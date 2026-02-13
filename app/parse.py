@@ -42,11 +42,11 @@ def scrape_quotes() -> list[Quote]:
 
 def main(output_csv_path: str) -> None:
     quotes = scrape_quotes()
-    with open(output_csv_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
+    with open(output_csv_path, "w", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
         writer.writerow(["text", "author", "tags"])
         for qts in quotes:
-            writer.writerow([qts.text, qts.author, ",".join(qts.tags)])
+            writer.writerow([qts.text, qts.author, qts.tags])
 
 
 if __name__ == "__main__":
